@@ -9,7 +9,7 @@ const activities = [
   },
   {
     title: "College Tech Fest Coordinator",
-    organization: "St. Xavier's College, Jaipur",
+    organization: "St. Xavier's College Jaipur",
     description:
       "Coordinated technical fest activities and contributed to website management and promotional content for the event.",
   },

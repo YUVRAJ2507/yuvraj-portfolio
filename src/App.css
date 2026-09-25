@@ -883,66 +883,85 @@ body.light-mode .btn-secondary:hover {
   line-height: 1.8;
 }
 
-.certifications-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 30px;
+/* =========================
+   Certificate Carousel
+========================= */
+
+.certificate-carousel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 1050px;
+  min-height: 650px;
+  margin: 55px auto 0;
+  padding: 0 80px;
+  overflow: hidden;
+  touch-action: pan-y;
+}
+
+.certificate-slide {
+  width: 100%;
+  max-width: 760px;
+  z-index: 2;
 }
 
 .certification-card {
   position: relative;
-  padding: 25px;
-  background: rgba(255, 255, 255, 0.03);
+  width: 100%;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.035);
   border: 1px solid var(--border);
-  border-radius: 16px;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
   transition:
-    transform 0.3s ease,
     border-color 0.3s ease,
     background 0.3s ease,
     box-shadow 0.3s ease;
 }
 
 .certification-card:hover {
-  transform: translateY(-7px);
-  background: rgba(255, 255, 255, 0.045);
   border-color: rgba(167, 139, 250, 0.35);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+  background: rgba(255, 255, 255, 0.045);
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.12);
 }
 
 .certificate-image {
   display: block;
   width: 100%;
-  height: 260px;
+  height: 340px;
   object-fit: contain;
   margin-bottom: 25px;
-  padding: 8px;
+  padding: 10px;
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: 14px;
+  cursor: zoom-in;
   transition:
     transform 0.3s ease,
-    box-shadow 0.3s ease;
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
 }
 
 .certification-card:hover .certificate-image {
-  transform: scale(1.02);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.16);
 }
 
 .certificate-date {
   display: inline-block;
-  margin-bottom: 14px;
+  margin-bottom: 12px;
   color: var(--accent);
   font-size: 11px;
   font-weight: 600;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.6px;
 }
 
 .certification-card h3 {
-  margin-bottom: 10px;
+  margin-bottom: 9px;
   font-family: "Space Grotesk", sans-serif;
-  font-size: 20px;
-  line-height: 1.3;
+  font-size: 22px;
+  line-height: 1.35;
 }
 
 .certification-card h4 {
@@ -958,14 +977,106 @@ body.light-mode .btn-secondary:hover {
   line-height: 1.8;
 }
 
+/* =========================
+   Carousel Navigation
+========================= */
+
+.certificate-nav {
+  position: absolute;
+  top: 50%;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  transform: translateY(-50%);
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.certificate-prev {
+  left: 20px;
+}
+
+.certificate-next {
+  right: 20px;
+}
+
+.certificate-nav:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: white;
+  transform: translateY(-50%) scale(1.08);
+}
+
+/* =========================
+   Carousel Indicators
+========================= */
+
+.certificate-indicators {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  margin-top: 25px;
+}
+
+.certificate-dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: var(--border);
+  cursor: pointer;
+  transition:
+    width 0.3s ease,
+    background 0.3s ease,
+    transform 0.3s ease;
+}
+
+.certificate-dot:hover {
+  transform: scale(1.2);
+  background: rgba(167, 139, 250, 0.5);
+}
+
+.certificate-dot.active {
+  width: 25px;
+  border-radius: 10px;
+  background: var(--accent);
+}
+
+.certificate-counter {
+  margin-top: 12px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+/* =========================
+   Certifications Light Mode
+========================= */
+
 body.light-mode .certification-card {
   background: rgba(255, 255, 255, 0.65);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.06);
 }
 
 body.light-mode .certification-card:hover {
   background: rgba(255, 255, 255, 0.85);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 20px 55px rgba(0, 0, 0, 0.08);
 }
 
 body.light-mode .certificate-image {
@@ -973,32 +1084,135 @@ body.light-mode .certificate-image {
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
 }
 
+body.light-mode .certificate-nav {
+  background: rgba(255, 255, 255, 0.8);
+  color: var(--text);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+}
+
+body.light-mode .certificate-nav:hover {
+  background: var(--accent);
+  color: white;
+}
+
+/* =========================
+   Certifications Responsive
+========================= */
+
 @media (max-width: 900px) {
-  .certifications-grid {
-    grid-template-columns: 1fr;
+  .certifications {
+    padding: 100px 25px;
+  }
+
+  .certificate-carousel {
+    min-height: 600px;
+    padding: 0 65px;
+  }
+
+  .certificate-slide {
+    max-width: 680px;
+  }
+
+  .certification-card {
+    padding: 25px;
   }
 
   .certificate-image {
     height: 300px;
   }
+
+  .certificate-prev {
+    left: 10px;
+  }
+
+  .certificate-next {
+    right: 10px;
+  }
 }
 
 @media (max-width: 700px) {
   .certifications {
-    padding: 90px 20px;
+    padding: 90px 15px;
   }
 
-  .certifications-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
+  .certifications .section-title {
+    margin-bottom: 0;
+  }
+
+  .certifications .section-title p {
+    padding: 0 5px;
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .certificate-carousel {
+    min-height: auto;
+    margin-top: 35px;
+    padding: 0 5px;
+    overflow: hidden;
+    touch-action: pan-y;
+  }
+
+  .certificate-slide {
+    width: 100%;
+    max-width: 100%;
   }
 
   .certification-card {
-    padding: 20px;
+    width: 100%;
+    padding: 18px;
+    border-radius: 16px;
   }
 
   .certificate-image {
-    height: 220px;
+    height: 230px;
+    margin-bottom: 20px;
+    padding: 7px;
+    border-radius: 10px;
+  }
+
+  .certification-card h3 {
+    font-size: 19px;
+  }
+
+  .certification-card h4 {
+    margin-bottom: 12px;
+    font-size: 12px;
+  }
+
+  .certification-card p {
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  .certificate-nav {
+    width: 38px;
+    height: 38px;
+    font-size: 18px;
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  }
+
+  .certificate-prev {
+    left: 10px;
+  }
+
+  .certificate-next {
+    right: 10px;
+  }
+
+  .certificate-indicators {
+    margin-top: 20px;
+    gap: 7px;
+  }
+
+  .certificate-dot {
+    width: 7px;
+    height: 7px;
+  }
+
+  .certificate-dot.active {
+    width: 21px;
   }
 }
 
@@ -1733,5 +1947,90 @@ body::after {
 
   100% {
     transform: translate(-120px, -100px) scale(1.2);
+  }
+}
+
+
+
+/* =========================
+   Mobile Hero Fix
+========================= */
+
+@media (max-width: 700px) {
+  .hero {
+    min-height: auto;
+    padding: 110px 16px 70px;
+    overflow: hidden;
+  }
+
+  .hero-content {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .hero-badge {
+    max-width: 100%;
+    padding: 8px 12px;
+    font-size: 11px;
+    line-height: 1.5;
+    white-space: normal;
+  }
+
+  .hero-name-row {
+    width: 100%;
+    flex-direction: column;
+    gap: 22px;
+    margin-top: 30px;
+  }
+
+  .hero-name-row h1 {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    text-align: center;
+    font-size: clamp(42px, 13vw, 60px);
+    line-height: 1;
+    letter-spacing: -2px;
+    overflow-wrap: break-word;
+    word-break: normal;
+  }
+
+  .profile-photo {
+    width: 120px;
+    height: 120px;
+    flex: 0 0 120px;
+  }
+
+  .hero-subtitle {
+    margin-top: 8px;
+    margin-bottom: 18px;
+    font-size: 22px;
+    line-height: 1.3;
+  }
+
+  .hero-description {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 5px;
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  .hero-buttons {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-top: 28px;
+  }
+
+  .hero-buttons .btn {
+    width: 220px;
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .scroll-indicator {
+    margin-top: 35px;
   }
 }
